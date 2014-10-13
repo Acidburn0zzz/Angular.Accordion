@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+
+/* Alle Styles über ein CSS-Inkludieren
+-------------------------------------------------- */
+
+@import "navbar.css";
+@import "sidebar.css";
+@import "logging.css";
+@import "upload.css";
+@import "splashscreen.css";
+
+
+
+

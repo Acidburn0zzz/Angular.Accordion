@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<style>
+    /* http://fortawesome.github.io/Font-Awesome/icons/ */
+    .accordion {
+        max-height : 50em;
+        overflow   : hidden;
+        opacity    : 1;
+    }
+
+    .accordion.collapse {
+        /*display    : none;*/
+        visibility : hidden;
+        opacity    : 0;
+        max-height : 0px;
+        transition : 0.3s;
+    }
+
+    .panel-heading .panel-title > a {
+        text-decoration : none;
+    }
+
+    .accordion h4 > i.fa {
+        opacity       : 0.5;
+        color         : GrayText;
+        font-size     : 90%;
+        padding-right : 0.25em;
+        cursor        : pointer;
+    }
+
+    .accordion h4 > a  {
+        cursor        : pointer;
+    }
+
+
+    .accordion h4 {
+        display : inline;
+    }
+
+    .accordion > .panel-body {
+        /* Wichtig für overlay (z.B. pindicator) dass innhalb des panel-body kommen kann */
+        position : relative;
+    }
+
+</style>
+
+<li class="panel panel-default accordion">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <i class="fa" ng-class="{'fa-minus-square': isOpen, 'fa-plus-square': !isOpen}" ng-click="isOpen = !isOpen"></i>
+            <a class="accordion-toggle" ng-click="isOpen = !isOpen">
+                <content-append node="heading"></content-append>
+            </a>
+        </h4>
+        <div class="accordion-toolbar pull-right" ng-if="toolbar != null">
+            <content-append node="toolbar"></content-append>
+        </div>
+    </div>
+    <div class="panel-collapse accordion collapse" collapse="!isOpen">
+        <div class="panel-body">
+            <content></content>
+        </div>
+    </div>
+</li>

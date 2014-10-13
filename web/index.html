@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="packages/angular_accordion/styles/flexbox/css/flexbox.css">
+    <link rel="stylesheet" type="text/css" href="packages/angular_accordion/styles/flexbox/css/debug.css">
+
+    <link rel="stylesheet" href="packages/angular_accordion/styles/application/css/application.css">
+
+    <link rel="stylesheet" href="packages/angular_accordion/styles/font-awesome-4.1.0/css/font-awesome.min.css">
+</head>
+<body flexbox-navi-handler ng-cloak>
+<header>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <a href="#" id="toggle-sidenav"><i class="fa fa-bars"></i></a>
+        <a href="#" id="toggle-debugcss"><i class="fa fa-bug"></i></a>
+        <span class="spacer"></span>
+        <a href="#" id="toggle-log"><i class="fa fa-list"></i></a>
+        <a href="#" id="toggle-sidebar" style="margin-bottom: 0.1em">
+            <i class="fa fa-toggle-left"></i>
+            <i class="fa fa-toggle-right"></i>
+        </a>
+    </nav>
+</header>
+<section id="middle">
+    <main id="main">
+        <div class="container">
+            <article class="sample">
+                <h1>Angular - Accordion-Test</h1>
+
+                <div class="well">
+                    <accordion close-others="true">
+                        <accordion-group heading="Static Header I, initially expanded" is-open="false">
+                            This content is straight in the template. Ich bin Blindtext. Von Geburt an. Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es bedeutet,
+                            ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang gerissen.
+                            Oft wird man gar nicht erst gelesen. Aber bin ich deshalb ein schlechter Text? Ich weiss,
+                            dass ich nie die Chance haben werde, im Stern zu erscheinen. Aber bin ich darum weniger wichtig?
+                            Ich bin blind! Aber ich bin gerne Text. Und sollten Sie mich jetzt tatsächlich zu Ende lesen,
+                            dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt.
+
+                            Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es bedeutet,
+                            ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang gerissen.
+                            Oft wird man gar nicht erst gelesen. Aber bin ich deshalb ein schlechter Text? Ich weiss,
+                            dass ich nie die Chance haben werde, im Stern zu erscheinen. Aber bin ich darum weniger wichtig?
+                            Ich bin blind! Aber ich bin gerne Text. Und sollten Sie mich jetzt tatsächlich zu Ende lesen,
+                            dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt.
+                        </accordion-group>
+                        <accordion-group is-open="true">
+                            <accordion-heading>
+                                <strong style="color: red">I can have markup, too!</strong>
+                            </accordion-heading>
+                            This is just some content to illustrate fancy headings.
+                        </accordion-group>
+
+                        <accordion-group heading="With Toolbar (should not be visible, (replaced with 'Hallo Toolbar')" >
+                            <accordion-toolbar>
+                                Hallo Toolbar
+                            </accordion-toolbar>
+                            This is just some content to illustrate fancy headings.
+                        </accordion-group>
+
+                    </accordion>
+                </div>
+            </article>
+        </div>
+    </main>
+</section>
+<footer class="navbar navbar-inverse">
+    <a href="#">Footer</a>
+</footer>
+<!-- SplashScreen wird nicht mit Polymer oder Angular aufgelöst da das Laden zu lange dauert! -->
+<div id="splashscreen" class="card">
+    <div role="spinner">
+        <div class="spinner-icon"></div>
+    </div>
+    <img class="img-circle" src="packages/angular_accordion/styles/images/avatar.png">
+
+    <p class="lead" style="text-align:center">Please wait...</p>
+
+    <div class="progress">
+        <div class="mybar" role="bar">
+        </div>
+    </div>
+</div>
+<script type="application/dart" src="main.dart"></script>
+<script type="text/javascript" src="../packages/browser/dart.js"></script>
+</body>
+</html>

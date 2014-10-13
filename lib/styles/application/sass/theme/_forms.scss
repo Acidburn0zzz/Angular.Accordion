@@ -1,0 +1,64 @@
+//
+// Forms
+// --------------------------------------------------
+
+
+// Form controls
+// -------------------------
+
+// Shared size and type resets
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+
+  margin-bottom: 0;
+
+}
+
+#loginform, #registrationform {
+	margin-top: 3em;
+	margin-bottom: 4em;
+	
+	.register {
+		padding-top: 1em;
+	}
+	
+	.control-group.last {
+		margin-bottom: 0;
+	}
+}
+
+.form-horizontal {
+  // And apply it only to .help-block instances that follow a form control
+  input,
+  select,
+  textarea,
+  .uneditable-input,
+  .input-prepend,
+  .input-append {
+    + .help-block {
+      margin-top: 0;
+      font-size: 90%;
+      color: #b1b1b1;
+      font-style: italic;
+    }
+  }
+}
+
+//.form-group {
+//  margin-bottom: 0;
+//}

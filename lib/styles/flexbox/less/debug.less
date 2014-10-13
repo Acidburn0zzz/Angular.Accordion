@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+/* CSS-DEBUG für FlexBox
+----------------------------------------------------------------------------- */
+
+@header-background: red;
+@middle-background: green;
+@nav-background: #85d6e4;
+@aside-background: #ea8ee4;
+@log-background: yellow;
+@footer-background: blue;
+
+body.debugCSS {
+    header {
+        background : @header-background;
+    }
+
+    #middle {
+        background: @middle-background;
+    }
+    article.sample {
+        border          : 1px solid red;
+
+         > div {
+            background   : tomato;
+            color        : white;
+
+        }
+    }
+
+    article.sample {
+//        padding         : 0 1em 1em;
+        margin-bottom   : 1em;;
+
+        /* We first create a flex layout context */
+        display         : flex;
+        /* Then we define the flow direction and if we allow the items to wrap
+         * Remember this is the same as:
+         * flex-direction: row;
+         * flex-wrap: wrap;
+         */
+        flex-flow       : row wrap;
+
+        /* Then we define how is distributed the remaining space */
+        justify-content : space-around;
+
+        /*justify-content: flex-start;*/
+
+        > div {
+            padding      : 5px;
+            width        : 200px;
+            height       : 150px;
+            margin-top   : 15px;
+            margin-right : 10px;
+            line-height  : 150px;
+            font-weight  : bold;
+            font-size    : 2em;
+            text-align   : center;
+        }
+    }
+
+    nav {
+        /* Seitenleisen
+        ----------------------------------------------------------------------------- */
+        background : @nav-background;
+        color: contrast(@nav-background)
+    }
+
+    aside {
+        background : @aside-background;
+        color: contrast(@aside-background);
+    }
+
+    footer {
+        /* Fußbereich
+        ----------------------------------------------------------------------------- */
+        background : @footer-background;
+        color: contrast(@footer-background);
+
+        a {
+            color: contrast(@footer-background);
+        }
+    }
+
+    section#log {
+        background-color : @log-background;
+        color: contrast(@log-background);
+
+        a {
+            color: contrast(@log-background);
+        }
+    }
+
+
+}
+

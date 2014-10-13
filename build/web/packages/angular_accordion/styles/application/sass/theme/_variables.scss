@@ -1,0 +1,40 @@
+// WebApp-Colors
+$green:					#99B889;
+
+// Scaffolding
+// -------------------------
+$body-bg :        #FAFAFA;
+$text-color :     $gray-dark;
+
+// Links
+// -------------------------
+$link-color :               rgb(218, 123, 21);
+$link-color-hover :         lighten($link-color, 15%);
+$navbar-link-color-hover :  $link-color;
+$navbar-link-color-active : $link-color;
+$login-color :			    #A8F87F;
+$logout-color :			    #F15B4F;
+
+// Typography
+// -------------------------
+$font-family-sans-serif :        'Droid Sans', Helvetica, Arial, sans-serif;
+
+// Horizontal forms & lists
+// -------------------------
+$component-offset-horizontal :       110px;
+
+// Navbar
+// -------------------------
+$navbar-default-brand-color :	  #ffffff;
+$navbar-default-bg :              darken($navbar-inverse-bg, 50%);
+$navbar-default-color:            darken($navbar-default-brand-color, 5%);
+$navbar-default-link-color :      darken($navbar-default-brand-color, 5%);
+
+// Tables
+// -------------------------
+$table-border :					 #C5D8C5;
+$table-bg-accent :               $green; // for striping
+
+// Footer
+// -------------------------
+$footer-height :		     	 40px;

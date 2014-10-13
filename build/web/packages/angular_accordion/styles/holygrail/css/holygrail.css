@@ -1,0 +1,224 @@
+@charset "UTF-8";
+/*
+Erstellt ein Basislayout mit Toolbar, Footer und 3 Cols im Datenbereich
+/Volumes/Daten/DevLocal/DevDart/WebApp.Base.UI/lib/styles/holygrail
+    sass -t expanded sass/holygrail.scss css/holygrail.css
+
+Weitere Infos:
+  http://jsfiddle.net/ExplosionPIlls/ANZct/
+*/
+/* Wird für die Toolbar benötigt */
+@import url("http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+html, body {
+  width: 100%; }
+
+/* Reset the box-sizing
+    Heads up! This reset may cause conflicts with some third-party widgets.
+    For recommendations on resolving such conflicts, see
+    http://getbootstrap.com/getting-started/#third-box-sizing
+----------------------------------------------------------------------------- */
+* {
+  padding: 0px;
+  margin: 0px; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* Buttons in der Toolbar
+----------------------------------------------------------------------------- */
+#toggle-sidebar .fa-toggle-left, .hideSideBar #toggle-sidebar .fa-toggle-right {
+  display: none; }
+
+#toggle-sidebar .fa-toggle-right, .hideSideBar #toggle-sidebar .fa-toggle-left {
+  display: inline-block; }
+
+/* Sektionen der Seite
+----------------------------------------------------------------------------- */
+.gutter nav li li, .gutter nav li li li, .gutter nav li li li li {
+  padding-left: 15px; }
+.gutter section#middle nav#sidenav {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 7.5px; }
+.gutter section#middle main#main #content {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 7.5px; }
+.gutter section#middle main#main aside#sidebar {
+  padding-top: 15px;
+  padding-left: 7.5px;
+  padding-right: 15px; }
+
+header {
+  height: 50px;
+  padding: 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 15; }
+  header nav.vertical.centered {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 1em; }
+  .debugCSS header {
+    background: #999999; }
+
+section#middle {
+  width: 100%;
+  position: relative;
+  top: 50px;
+  bottom: 50px;
+  height: 100%;
+  margin-top: 0;
+  margin-bottom: 0; }
+  section#middle nav#sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    left: 0;
+    top: 50px; }
+    .hideSideNav section#middle nav#sidenav {
+      visibility: hidden;
+      display: none; }
+    .debugCSS section#middle nav#sidenav {
+      background: #7c8e8a; }
+  section#middle main#main {
+    -webkit-box-sizing: border-box;
+    margin-left: 200px;
+    overflow: scroll;
+    margin-bottom: 50px; }
+    .hideSideNav section#middle main#main {
+      margin-left: 0; }
+    .showLog section#middle main#main {
+      margin-bottom: 200px; }
+    .debugCSS section#middle main#main {
+      background: red; }
+    section#middle main#main #content {
+      margin-right: 250px;
+      float: left; }
+      section#middle main#main #content.no-sidebar {
+        margin-right: 0;
+        float: none; }
+      .hideSideBar section#middle main#main #content {
+        margin-right: 0; }
+      .debugCSS section#middle main#main #content {
+        background: brown; }
+    section#middle main#main aside#sidebar {
+      width: 250px;
+      position: absolute;
+      left: 100%;
+      margin-left: -250px; }
+      .hideSideBar section#middle main#main aside#sidebar {
+        visibility: hidden;
+        display: none; }
+      section#middle main#main aside#sidebar.gutter.right {
+        margin-left: -265px;
+        padding-right: 15px; }
+      section#middle main#main aside#sidebar.gutter.left {
+        margin-left: -265px; }
+      section#middle main#main aside#sidebar.gutter.left.right {
+        margin-left: -280px; }
+      .debugCSS section#middle main#main aside#sidebar {
+        background: blue; }
+
+/* Fußbereich mit Logging
+----------------------------------------------------------------------------- */
+section#log {
+  visibility: hidden;
+  height: 150px;
+  position: fixed;
+  bottom: 50px;
+  width: 100%; }
+  .showLog section#log {
+    visibility: visible; }
+  .debugCSS section#log {
+    background-color: #008000; }
+
+footer {
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
+  footer nav.vertical.centered {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 1em; }
+  .debugCSS footer {
+    background-color: #5D7B93; }
+
+/* Tools
+----------------------------------------------------------------------------- */
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.pull-right {
+  float: right !important; }
+
+.pull-left {
+  float: left !important; }
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table; }
+.clearfix:after {
+  clear: both; }
+
+.gutter.left, .gutter .left {
+  padding-left: 15px; }
+.gutter.right, .gutter .right {
+  padding-right: 15px; }
+
+/* Loading-Indicator
+----------------------------------------------------------------------------- */
+.loading {
+  display: none; }
+  body[ng-cloak] .loading {
+    display: block; }
+
+/* Listen in den Navis - kompatibilität zu BootStrap
+----------------------------------------------------------------------------- */
+nav li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+nav.navbar li {
+  display: inline;
+  list-style-type: none; }
+nav .navbar-nav {
+  float: left;
+  display: inline-block; }
+nav .navbar-nav.navbar-right {
+  float: right;
+  display: inline-block; }
+nav#sidenav li > ul {
+  display: none;
+  visibility: hidden; }
+nav#sidenav li.enabled > ul, nav#sidenav li.active > ul {
+  display: block;
+  visibility: visible; }
+nav#sidenav li.active > a {
+  font-weight: bold; }
+
+.debugCSS [class^=col-] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #eee;
+  background-color: rgba(86, 61, 124, 0.15);
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86, 61, 124, 0.2); }

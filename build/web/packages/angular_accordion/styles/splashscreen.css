@@ -1,0 +1,48 @@
+/* Nachdem der mm_sample_container geladen ist
+wird in body die Klasse show-splash-screen ausgeschaltet.
+
+Weitere Infos:
+        http://juristr.com/blog/2013/12/nprogress-splash-screen/
+---------------------------------------------------------------- */
+body[ng-cloak] mm-sample-container,
+body[ng-cloak] mm-log-container,
+body[ng-cloak] mm-sample-footer,
+body[ng-cloak] header, body[ng-cloak] footer, body[ng-cloak] section {
+  display: none; }
+
+body[ng-cloak] .splashscreen {
+  display: block; }
+
+.splashscreen {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 99; }
+  .splashscreen img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 100px; }
+  .splashscreen .mybar {
+    background: #29d;
+    height: 2px; }
+  .splashscreen .progress {
+    height: 2px; }
+  .splashscreen .spinner-icon {
+    position: absolute;
+    right: 20px; }
+  .splashscreen.card {
+    background-color: #f7f7f7;
+    padding: 20px 25px 15px;
+    margin: 0 auto 25px;
+    width: 380px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); }

@@ -1,0 +1,16 @@
+/*
+Erstellt mit: (im application-Folder)
+
+    sass sass/bootstrap.scss > css/bootstrap.css
+    sass sass/theme.scss > css/theme.css
+*/
+
+@import url("//fonts.googleapis.com/css?family=Lato:400,700,400italic");
+
+@import url("bootstrap.css");
+@import url("theme.css");
+
+
+
+
+

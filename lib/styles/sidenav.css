@@ -1,0 +1,44 @@
+/* Fixe sidebar, weitere Infos:
+        http://www.bootply.com/108620
+-------------------------------------------------- */
+body, html {
+    height : 100%;
+    padding-top: 10px;
+}
+
+main #content {
+    position: relative;
+}
+
+#sidenav {
+    width: 200px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: #EAEAEA;
+}
+
+/*.sidebar.right {*/
+    /*float            : right;*/
+    /*display : none;*/
+/*}*/
+
+/*.show-right-sidebar .sidebar.right {*/
+    /*display : block;*/
+/*}*/
+
+/*#sidebar {*/
+    /*float: right;*/
+
+    /*min-width        : 210px;*/
+    /*max-width        : 210px;*/
+
+/*}*/
+
+/*#content {*/
+    /*margin: 0 230px 0 230px;*/
+    /*width: 80%;*/
+/*}*/
+
+
+

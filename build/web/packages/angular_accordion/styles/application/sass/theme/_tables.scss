@@ -1,0 +1,21 @@
+//
+// Tables
+// --------------------------------------------------
+
+
+// BASE TABLES
+// -----------------
+.table {
+	margin-bottom: 0;	
+}
+
+.table-bordered {
+  border-radius: $border-radius-base;
+  
+  th {
+  	background-color: darken($navbar-default-bg,5%);
+  	color: $navbar-default-color;
+  }
+}
+
+ 

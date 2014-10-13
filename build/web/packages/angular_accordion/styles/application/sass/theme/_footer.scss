@@ -1,0 +1,47 @@
+/* Set the fixed height of the footer here */
+#push,#footer {
+	height: ($footer-height);
+}
+
+#footer {
+    color: $navbar-inverse-color;
+	background-color: $navbar-inverse-bg;
+
+    a {
+      color: $navbar-inverse-color;
+    }
+
+	.credit {
+		margin: 10px 0;
+        color: #ffffff;
+	}
+	
+	.status {
+		font-size: 80%;
+		
+			.label {
+				background-color: transparent;
+			}
+	}
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media ( max-width : 767px) {
+	#footer {
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto  (-$footer-height);
+}
+      

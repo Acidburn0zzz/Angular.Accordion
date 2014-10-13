@@ -1,0 +1,50 @@
+.navbar-inner {
+  background-color : $navbar-default-bg;
+}
+
+.navbar .brand {
+  color          : $navbar-default-brand-color;
+  text-shadow    : none;
+  letter-spacing : 0.05em;
+}
+
+.currentuser {
+  font-style : italic;
+}
+
+.navbar .nav > li > a { text-shadow : none; }
+
+.navbar .nav.login > li {
+  .welcome, .currentuser {
+    color : $navbar-default-brand-color;
+  }
+
+  > a {
+    display      : inline-block;
+    padding-left : 0.5em;
+
+    &.login {
+      color : $login-color;
+    }
+
+    &.logout {
+      color : $logout-color;
+    }
+  }
+}
+
+.navbar-nav {
+  // Uncollapse the nav
+  @media (min-width : $grid-float-breakpoint) {
+
+    > li > span {
+      padding-top    : $navbar-padding-vertical;
+      padding-bottom : $navbar-padding-vertical;
+      display: inline-block;
+    }
+
+    &.navbar-right:last-child {
+      margin-right : -$navbar-padding-horizontal;
+    }
+  }
+}

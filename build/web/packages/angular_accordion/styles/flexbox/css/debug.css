@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/* CSS-DEBUG für FlexBox
+----------------------------------------------------------------------------- */
+body.debugCSS header {
+  background: #ff0000;
+}
+body.debugCSS #middle {
+  background: #008000;
+}
+body.debugCSS article.sample {
+  border: 1px solid red;
+}
+body.debugCSS article.sample > div {
+  background: tomato;
+  color: white;
+}
+body.debugCSS article.sample {
+  margin-bottom: 1em;
+  /* We first create a flex layout context */
+  display: flex;
+  /* Then we define the flow direction and if we allow the items to wrap
+         * Remember this is the same as:
+         * flex-direction: row;
+         * flex-wrap: wrap;
+         */
+  flex-flow: row wrap;
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+  /*justify-content: flex-start;*/
+}
+body.debugCSS article.sample > div {
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+  margin-top: 15px;
+  margin-right: 10px;
+  line-height: 150px;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+body.debugCSS nav {
+  /* Seitenleisen
+        ----------------------------------------------------------------------------- */
+  background: #85d6e4;
+  color: #000000;
+}
+body.debugCSS aside {
+  background: #ea8ee4;
+  color: #ffffff;
+}
+body.debugCSS footer {
+  /* Fußbereich
+        ----------------------------------------------------------------------------- */
+  background: #0000ff;
+  color: #ffffff;
+}
+body.debugCSS footer a {
+  color: #ffffff;
+}
+body.debugCSS section#log {
+  background-color: #ffff00;
+  color: #000000;
+}
+body.debugCSS section#log a {
+  color: #000000;
+}
+/*# sourceMappingURL=../less/debug.css.map */

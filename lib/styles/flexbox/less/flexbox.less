@@ -1,0 +1,374 @@
+@charset "UTF-8";
+
+@sidenav-width: 200px;
+@sidebar-width: 200px;
+@footer-height: 50px;
+@log-height: 150px;
+
+@main-font: "Open Sans";
+
+@default-font-size: 13px;
+@default-col-gutter: 13px;
+
+/* FlexBox-Layout
+----------------------------------------------------------------------------- */
+@import url('http://fonts.googleapis.com/css?family=@{main-font}');
+@import url('http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css');
+
+/*
+    Weitere Infos:
+        Complete Guide to FlexBox:
+            http://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+        http://stackoverflow.com/questions/19477707/html5-three-rows-flexbox-with-fixed-top-bottom-and-scrollable-middle
+        http://jsfiddle.net/RnBhH/2/
+        http://noseyparka.me.uk/2014/03/20/a-holy-grail-flexbox-layout/
+        http://www.cssplay.co.uk/layouts/cssplay-flex-basic-layout.html
+
+        Font-Awsom:
+            http://fortawesome.github.io/Font-Awesome/icons/
+
+        Wichtig: (Mit media query)
+            http://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+        Noch nicht eingebaut:
+            http://www.vanseodesign.com/web-design/articles-ive-written-elsewhere/
+            http://cssdeck.com/labs/simple-off-canvas-navigasi
+            http://webdesign.tutsplus.com/tutorials/tricks-with-flexbox-for-better-css-patterns--cms-19449
+            http://philipwalton.github.io/solved-by-flexbox/
+
+        FlexBox-Admin Template
+            http://codepen.io/oknoblich/pen/lrEvm
+
+        Same Height Cols:
+            http://www.bootply.com/127828
+
+        Off-Canvas
+            http://codepen.io/oknoblich/pen/klnjw
+
+*/
+
+html, body {
+    margin      : 0;
+    height      : 100%;
+    min-height  : 100%;
+    font-family : '@{main-font}', 'sans-serif';
+    font-size   : @default-font-size;
+}
+
+body {
+    margin         : 0;
+    display        : flex;
+    flex-direction : column;
+
+    //    > section {
+    //        flex    : 1;
+    //        display : flex;
+    //    }
+}
+
+header {
+    min-height  : 50px;
+    max-height  : 50px;
+    display     : flex;
+    flex        : 1;
+
+    /* vertical Zentriert!!!! */
+    align-items : center;
+
+    nav {
+        padding-left  : 15px;
+        padding-right : 15px;
+
+        /* -- Elemente im Header -- */
+        display       : flex;
+        flex          : 1;
+
+        /* vertical Zentriert!!!! */
+        align-items   : center;
+
+        a {
+            text-decoration : none;
+            margin-left     : 1em;
+        }
+
+        a:first-child {
+            margin-left : 0;
+        }
+
+        i {
+            font-size : 1.3em;
+        }
+
+        .spacer {
+            flex-grow : 1;
+        }
+
+        &.navbar {
+            /* Bootstrap */
+            border-radius : 0;
+            margin-bottom : initial;
+        }
+
+        .noSideBar & {
+            #toggle-sidebar {
+                display : none;
+            }
+        }
+
+        .noLog & {
+            #toggle-log {
+                display : none;
+            }
+        }
+
+        .noSideNav & {
+            #toggle-sidenav {
+                display : none;
+            }
+        }
+
+    }
+}
+
+section#middle {
+    display   : flex;
+    flex-grow : 1;
+
+    main, #main {
+        display    : flex;
+        transform  : translateX(0);
+        transition : .3s ease all;
+
+        // Funkt dann auch ohne nav nur mit bottstrap-Container
+        width      : 100%;
+
+        > div {
+            order              : 1;
+
+            // Scroll funkt hier auch - hängt am Mac von den Settings auf "General / Show scroll bar" ab
+            overflow-y         : auto;
+
+            -ms-overflow-style : -ms-autohiding-scrollbar;
+        }
+
+        > aside {
+            order : 2;
+            width : @sidebar-width;
+        }
+
+        > #content {
+            padding-left  : (@default-col-gutter / 2);
+            padding-right : (@default-col-gutter / 2);
+        }
+
+        .hideSideNav & {
+            > #content {
+                padding-left : @default-col-gutter;
+            }
+        }
+    }
+}
+
+/* Seitenleisen
+----------------------------------------------------------------------------- */
+
+nav {
+    /* put the nav on the left */
+    order : 0;
+}
+
+aside {
+}
+
+nav#sidenav {
+    flex       : 0 0 @sidenav-width;
+    transition : margin-left .3s ease;
+    overflow   : auto;
+
+    > div {
+        padding-left  : @default-col-gutter;
+        padding-right : (@default-col-gutter / 2);
+    }
+}
+
+aside#sidebar {
+    flex     : 0 0 @sidebar-width;
+    overflow : auto;
+
+    > div {
+        padding-left  : @default-col-gutter;
+        padding-right : (@default-col-gutter / 2);
+    }
+}
+
+/* LOG-Container
+----------------------------------------------------------------------------- */
+
+section#log {
+    display        : none;
+    flex-grow      : 1;
+    min-height     : @log-height;
+    max-height     : @log-height;
+    padding        : (@default-col-gutter / 2);
+    height         : 0;
+    flex-direction : column;
+
+    body.showLog & {
+        display : flex;
+    }
+
+    logcontainer {
+        display         : flex;
+        flex            : 1;
+        flex-direction  : column;
+        align-items     : stretch;
+        justify-content : flex-start;
+    }
+
+    //    justify-content: space-around;
+    //    .showLog & {
+    //        &.bg-info {
+    //            border-top: 1px solid;
+    //        }
+    //    }
+    //    .message-container {
+    //        min-height : (@log-height - @default-col-gutter);
+    //        max-height : (@log-height - @default-col-gutter);
+    //    }
+}
+
+/* Fußbereich
+----------------------------------------------------------------------------- */
+footer {
+    padding-left  : 15px;
+    padding-right : 15px;
+    min-height    : @footer-height;
+    max-height    : @footer-height;
+    display       : flex !important;
+    flex          : 1;
+
+    /* vertical Zentriert!!!! */
+    align-items   : center;
+
+    &.navbar {
+        border-radius : 0;
+        margin-bottom : initial;
+    }
+
+    .showLog & {
+        &.navbar {
+            border-top : 0;
+        }
+    }
+
+}
+
+/* SplashScreen
+----------------------------------------------------------------------------- */
+#splashscreen {
+    display  : none;
+
+    body[ng-cloak] & {
+        display : block;
+    }
+
+    position : absolute;
+    top      : 20%;
+    left     : 0;
+    right    : 0;
+    margin   : auto;
+    z-index  : 99;
+
+    img {
+        display      : block;
+        margin-left  : auto;
+        margin-right : auto;
+        height       : 100px;
+        width        : 100px;
+    }
+
+    &.card {
+        background-color      : #f7f7f7;
+        padding               : 20px 25px 15px;
+        margin                : 0 auto 25px;
+        width                 : 380px;
+        -moz-border-radius    : 2px;
+        -webkit-border-radius : 2px;
+        border-radius         : 2px;
+        -moz-box-shadow       : 0px 2px 2px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow    : 0px 2px 2px rgba(0, 0, 0, 0.3);
+        box-shadow            : 0px 2px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .mybar {
+        background : #29d;
+        height     : 2px;
+    }
+
+    .progress {
+        height : 2px;
+    }
+
+    .spinner-icon {
+        position : absolute;
+        right    : 20px;
+    }
+}
+
+/* Angular - mini boot??
+----------------------------------------------------------------------------- */
+body[ng-cloak] {
+    header,
+    section,
+    footer {
+        display : none !important;
+    }
+}
+
+/* Wird mit JS geschaltet
+----------------------------------------------------------------------------- */
+body.hideSideBar aside#sidebar {
+    display : none;
+}
+
+body.hideSideNav #sidenav {
+    margin-left : -@sidenav-width;
+}
+
+#toggle-sidebar .fa-toggle-left, .hideSideBar #toggle-sidebar .fa-toggle-right {
+    display : none;
+}
+
+#toggle-sidebar .fa-toggle-right, .hideSideBar #toggle-sidebar .fa-toggle-left {
+    display : inline-block;
+}
+
+/* Responsive - Small-Screens
+----------------------------------------------------------------------------- */
+@media all and (max-width : 600px) {
+
+    #main > aside {
+        order   : 1;
+        display : none;
+    }
+
+    a#toggle-sidebar {
+        display : none;
+    }
+
+    body #sidenav {
+        margin-left : -@sidenav-width;
+    }
+
+    body.hideSideNav #sidenav {
+        margin-left : 0;
+    }
+
+    main, #main {
+        #content {
+            padding-left : @default-col-gutter;
+        }
+    }
+}
+

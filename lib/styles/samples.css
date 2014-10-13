@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+/* index.html in <project dir>/examples
+----------------------------------------------------------------------------- */
+
+body {
+    margin-top : 60px;
+}
+body .well .nav li {
+    min-width: 20em;
+
+}
+
+.well .nav > li {
+    margin-bottom: 1em;
+    margin-right: 0.5em;
+}
+
+.well .nav > li > a {
+    display: inline-block;
+    padding-top: 5px;
+    border: 1px solid;
+    width: 20em;
+}
+
+.well .nav > li > a:before {
+    position: relative;
+    top: 4px;
+    padding-right: 5px;
+}
+
+.polymer a:before {
+    content :url(http://g.etfv.co/http://www.polymer-project.org/);
+}
+
+.angular a:before {
+    content :url(http://g.etfv.co/https://angulardart.org/);
+}
+
+.html a:before {
+    content :url(http://g.etfv.co/http://www.html5rocks.com/);
+}

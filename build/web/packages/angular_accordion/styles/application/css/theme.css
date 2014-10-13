@@ -1,0 +1,279 @@
+/* Tools */
+.pull-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.pull-down {
+  position: absolute;
+  left: 0px;
+  bottom: 0; }
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */ }
+
+.table {
+  margin-bottom: 0; }
+
+.table-bordered {
+  border-radius: 4px; }
+  .table-bordered th {
+    background-color: black;
+    color: #f2f2f2; }
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  margin-bottom: 0; }
+
+#loginform, #registrationform {
+  margin-top: 3em;
+  margin-bottom: 4em; }
+  #loginform .register, #registrationform .register {
+    padding-top: 1em; }
+  #loginform .control-group.last, #registrationform .control-group.last {
+    margin-bottom: 0; }
+
+.form-horizontal input + .help-block,
+.form-horizontal select + .help-block,
+.form-horizontal textarea + .help-block,
+.form-horizontal .uneditable-input + .help-block,
+.form-horizontal .input-prepend + .help-block,
+.form-horizontal .input-append + .help-block {
+  margin-top: 0;
+  font-size: 90%;
+  color: #b1b1b1;
+  font-style: italic; }
+
+.close {
+  font-size: 18px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442; }
+  .alert-error hr {
+    border-top-color: #e4b9c0; }
+  .alert-error .alert-link {
+    color: #843534; }
+
+.navbar-inner {
+  background-color: black; }
+
+.navbar .brand {
+  color: white;
+  text-shadow: none;
+  letter-spacing: 0.05em; }
+
+.currentuser {
+  font-style: italic; }
+
+.navbar .nav > li > a {
+  text-shadow: none; }
+
+.navbar .nav.login > li .welcome, .navbar .nav.login > li .currentuser {
+  color: white; }
+.navbar .nav.login > li > a {
+  display: inline-block;
+  padding-left: 0.5em; }
+  .navbar .nav.login > li > a.login {
+    color: #a8f87f; }
+  .navbar .nav.login > li > a.logout {
+    color: #f15b4f; }
+
+@media (min-width: 768px) {
+  .navbar-nav > li > span {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: inline-block; }
+  .navbar-nav.navbar-right:last-child {
+    margin-right: -15px; } }
+
+/* Set the fixed height of the footer here */
+#push, #footer {
+  height: 40px; }
+
+#footer {
+  color: #999999;
+  background-color: #222222; }
+  #footer a {
+    color: #999999; }
+  #footer .credit {
+    margin: 10px 0;
+    color: #ffffff; }
+  #footer .status {
+    font-size: 80%; }
+    #footer .status .label {
+      background-color: transparent; }
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px; } }
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -40px; }
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+#wrap > .container {
+  padding-top: 60px; }
+
+code {
+  font-size: 80%; }
+
+.varlist {
+  padding-left: 2em; }
+
+a.home {
+  margin-bottom: 1em;
+  display: block; }
+
+.commands {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  min-width: 500px;
+  background-color: #99b889;
+  border-radius: 8px;
+  margin-top: 1em;
+  border: 1px solid #ededed; }
+  .commands .test, .commands form {
+    padding-left: 2em; }
+  .commands .test {
+    padding-bottom: 1em;
+    border-bottom: 1px solid #eeeeee;
+    margin: 0.5em; }
+  .commands .hint {
+    font-size: 70%;
+    color: red; }
+
+.test a {
+  color: #333333; }
+
+.live a {
+  color: #00aa00; }
+
+.live, .admin {
+  margin-top: 1em;
+  padding-left: 2em; }
+
+#live .developmentonly {
+  display: none;
+  visibility: hidden; }
+
+.admin a {
+  color: #CD7300; }
+
+#live .highlight,
+#live .highlight a {
+  color: #00CC00;
+  font-weight: bold; }
+
+#development .highlight,
+#development .highlight a {
+  color: #da7b15;
+  font-weight: bold; }
+
+#test .highlight,
+#test .highlight a {
+  color: #B00000;
+  font-weight: bold; }
+
+#chat {
+  width: 90%;
+  height: 120px;
+  overflow-y: auto;
+  border: 1px solid #ededed;
+  border-radius: 8px;
+  margin: 0.5em 0 0.5em 0;
+  background-color: #f3f3f3;
+  padding: 0.5em; }
+
+#chat .time {
+  font-size: 80%;
+  margin-right: 0.5em; }
+
+#chat .name {
+  padding-right: 0.5em;
+  font-weight: bold; }
+
+.list.container .section {
+  border-radius: 4px;
+  border: 1px solid #99b889;
+  margin: 0 3em 0 2em; }
+
+.test .container {
+  padding-top: 1em; }
+
+.sample > .section {
+  border-radius: 4px;
+  padding: 1em;
+  margin: 1em; }
+  .sample > .section form {
+    padding-left: 0; }
+
+.section.test.images {
+  margin-bottom: 1em; }
+
+#namesblock {
+  min-height: 350px;
+  position: relative;
+  border: 1px solid #99b889;
+  border-radius: 4px;
+  padding: 1em;
+  background-color: white; }
+  #namesblock .btn-toolbar.pull-down {
+    left: 10px;
+    right: 10px; }
+  #namesblock table tr td:first-child {
+    width: 3em; }
+  #namesblock table thead {
+    font-weight: bold; }
+  #namesblock table tbody tr:hover {
+    cursor: pointer; }
+    #namesblock table tbody tr:hover i {
+      visibility: visible; }
+  #namesblock table .manager {
+    width: 2em;
+    text-align: center; }
+    #namesblock table .manager i {
+      visibility: hidden; }
+
+.role-admin {
+  color: #ff0000; }
+
+.role-vip {
+  color: #FF5721; }
+
+.role-user {
+  color: #00ff00; }
+
+.role-guest {
+  color: #0000ff; }

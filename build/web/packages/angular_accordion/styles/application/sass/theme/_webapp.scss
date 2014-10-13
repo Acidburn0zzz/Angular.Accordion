@@ -1,0 +1,148 @@
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container {
+  padding-top: 60px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.varlist {
+	padding-left: 2em;
+}
+
+a.home {
+	margin-bottom: 1em;
+	display: block;
+}
+
+
+.commands { 
+	padding-top: 1em; padding-bottom: 1em;
+	min-width: 500px; background-color: $green;
+	border-radius: 8px; margin-top: 1em;
+	border: 1px solid #ededed; 
+  
+	.test, form	{ 
+		padding-left: 2em; 
+		}
+		
+	.test { 
+		padding-bottom: 1em; border-bottom: 1px solid #eeeeee; margin: 0.5em; 
+		}
+		
+	.hint {
+		font-size: 70%;
+		color: red;
+	}
+}
+
+.test a						{ color: #333333; }
+.live a						{ color: #00aa00; }
+
+.live, .admin				{ margin-top: 1em; padding-left: 2em; }
+#live .developmentonly		{ display: none; visibility: hidden;}
+
+.admin a					{ color: #CD7300; }
+
+#live .highlight,
+#live .highlight a			{ color: #00CC00; font-weight: bold;}
+
+#development .highlight,
+#development .highlight a	{ color: #da7b15; font-weight: bold;}
+
+#test .highlight,
+#test .highlight a			{ color: #B00000; font-weight: bold;}
+
+#chat						{ width: 90%; height: 120px; overflow-y: auto;
+							  border: 1px solid #ededed;
+							  border-radius: 8px; margin: 0.5em 0 0.5em 0;
+							  background-color: #f3f3f3;
+							  padding: 0.5em;
+							}
+							
+#chat .time					{ font-size: 80%; margin-right: 0.5em; }
+#chat .name					{ padding-right: 0.5em; font-weight: bold; }
+
+.list.container	{
+		.section {
+			border-radius: $border-radius-base;
+			border: 1px solid $green;
+			margin: 0 3em 0 2em;
+		}
+	}		
+	
+.test .container 			{ padding-top: 1em; }
+.sample > .section { 
+    border-radius: $border-radius-base;
+
+    padding: 1em; margin: 1em;
+	
+	form {
+		padding-left: 0;
+	 }
+	}
+	
+.section.test.images {
+	margin-bottom: 1em;	
+}
+
+ 
+#namesblock {
+  min-height: 350px;
+  position: relative;
+  border: 1px solid $green;
+  border-radius: $border-radius-base;
+  padding: 1em;
+  background-color: lighten($body-bg,10%);
+  
+  .btn-toolbar.pull-down {
+    left: 10px;
+    right: 10px;
+    }
+    
+  table tr td:first-child {
+    width: 3em;
+    }
+    
+  table thead {
+    font-weight: bold;
+  
+    }
+    
+  table tbody tr:hover {
+    cursor: pointer;
+    
+    i {
+      visibility: visible;    
+      }    
+    }
+    
+  table .manager {
+    width: 2em;  
+    text-align: center;
+    
+    i {
+      visibility: hidden;    
+      }    
+    }    
+  }
+
+.role-admin {
+	color: #ff0000;
+}
+
+.role-vip {
+	color: #FF5721;
+}
+
+.role-user {
+	color: #00ff00;
+}
+
+.role-guest {
+	color: #0000ff;
+}
