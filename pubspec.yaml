@@ -13,7 +13,9 @@ dependencies:
   validate: any
   console_log_handler: any
 
-  angular: ">=1.0.0 <2.0.0"
+  di:               '>=3.3.1 <4.0.0'
+  angular:           ">=1.0.0 <2.0.0"
+
   #">=0.14.0 <1.0.0"
 
 transformers:

@@ -21,13 +21,6 @@ class AccordionGroupComponent implements DetachAware {
 
     final AccordionComponent accordion;
 
-    html.Element _extraHeader = null;
-
-    @NgTwoWay("header")
-    dynamic get header {
-       return _extraHeader != null ? _extraHeader : heading;
-    }
-
     AccordionGroupComponent(this.accordion) {
         _logger.fine('AccordionGroupComponent');
         accordion.addGroup(this);
@@ -57,17 +50,25 @@ class AccordionGroupComponent implements DetachAware {
 class AccordionHeadingComponent {
 
     AccordionHeadingComponent(final html.Element element,final AccordionGroupComponent group) {
-        element.remove();
-        group.heading = element;
+        // worked pre Angular 1.0
+        //element.remove();
+        element.style.display = "none";
+        group.heading = new html.Element.html(element.innerHtml);
     }
 }
 
 @Decorator(selector: 'accordion-toolbar')
 class AccordionToolbarComponent {
+     final _logger = new Logger('webapp_base_ui_angular.mm_uia_accordion.AccordionToolbarComponent');
 
     AccordionToolbarComponent(final html.Element element,final AccordionGroupComponent group) {
-        element.remove();
-        group.toolbar = element;
+        // worked pre Angular 1.0
+        //element.remove();
+
+        _logger.info(element.innerHtml.trim());
+
+        element.style.display = "none";
+        group.toolbar = new html.Element.html("<span>${element.innerHtml}</span>");
     }
 
 }
