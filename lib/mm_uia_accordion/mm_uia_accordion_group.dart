@@ -51,7 +51,7 @@ class AccordionGroupComponent implements DetachAware {
  *   <accordion-heading>Heading containing HTML - <img src="..."></accordion-heading>
  * </accordion-group>
  */
-@Decorator(selector: 'accordion-heading')
+@Component(selector: 'accordion-heading')
 class AccordionHeadingComponent {
 
     AccordionHeadingComponent(final html.Element element, final AccordionGroupComponent group) {
@@ -73,3 +73,51 @@ class AccordionToolbarComponent {
     }
 
 }
+
+class MyBindHtmdModule extends Module {
+    MyBindHtmdModule() {
+        bind(MyBindHtmlComponent);
+    }
+}
+
+    @Decorator(selector: 'my-bind-html')
+    class MyBindHtmlComponent {
+        final _logger = new Logger('webapp_base_ui_angular.mm_uia_accordion.MyBindHtmlDirective');
+
+        final html.Element element;
+        final RootScope scope;
+        final ViewFactoryCache viewFactoryCache;
+        final DirectiveInjector directiveInjector;
+        final DirectiveMap directives;
+
+        View _view;
+        Scope _childScope;
+
+        MyBindHtmlComponent(this.element, this.scope, this.viewFactoryCache, this.directiveInjector, this.directives);
+
+        @NgOneWay('node')
+        set node(value) {
+
+            _cleanUp();
+
+            if (value != null && value != '') {
+                _updateContent(viewFactoryCache.fromHtml(value, directives));
+            }
+        }
+
+        _cleanUp() {
+            if (_view == null) return;
+            _view.nodes.forEach((node) => node.remove);
+            _childScope.destroy();
+            _childScope = null;
+            element.innerHtml = '';
+            _view = null;
+        }
+
+        _updateContent(final ViewFactory viewFactory) {
+            // create a new scope
+            _childScope = scope.createProtoChild();
+            _view = viewFactory(_childScope, directiveInjector);
+            _view.nodes.forEach((node) => element.append(node));
+        }
+    }

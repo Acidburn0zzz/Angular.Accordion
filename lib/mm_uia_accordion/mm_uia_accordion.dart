@@ -14,7 +14,7 @@ part 'mm_uia_accordion_group.dart';
 class AccordionModule extends Module {
     AccordionModule() {
         install(new CollapseModule());
-        install(new ContentAppendModule());
+        install(new MyBindHtmdModule());
 
         bind(AccordionComponent);
         bind(AccordionHeadingComponent);
@@ -72,5 +72,48 @@ class AccordionComponent {
     /// This is called from the accordion-group directive when to remove itself
     void removeGroup(AccordionGroupComponent groupScope) {
         groups.remove(groupScope);
+    }
+}
+
+@Decorator(selector: '[my-bind-html]',map: const {'my-bind-html': '@html'})
+class MyBindHtmlDirective {
+    final _logger = new Logger('webapp_base_ui_angular.mm_uia_accordion.MyBindHtmlDirective');
+
+    final html.Element element;
+    final Scope scope;
+    final ViewFactoryCache viewFactoryCache;
+    final DirectiveInjector directiveInjector;
+    final DirectiveMap directives;
+
+    View _view;
+    Scope _childScope;
+
+    MyBindHtmlDirective(this.element, this.scope, this.viewFactoryCache, this.directiveInjector, this.directives);
+
+    //@NgOneWay('my-bind-html')
+    set html(value) {
+        _logger.info("Scope: $scope");
+
+        _cleanUp();
+
+        if (value != null && value != '') {
+            _updateContent(viewFactoryCache.fromHtml(value, directives));
+        }
+    }
+
+    _cleanUp() {
+        if (_view == null) return;
+        _view.nodes.forEach((node) => node.remove);
+        _childScope.destroy();
+        _childScope = null;
+        element.innerHtml = '';
+        _view = null;
+    }
+
+    _updateContent(final ViewFactory viewFactory) {
+        // create a new scope
+        _childScope = scope.createProtoChild();
+        _view = viewFactory(_childScope, directiveInjector);
+        _view.nodes.forEach((node) => element.append(node));
     }
 }

@@ -48,11 +48,11 @@
         <h4 class="panel-title">
             <i class="fa" ng-class="{'fa-minus-square': isOpen, 'fa-plus-square': !isOpen}" ng-click="isOpen = !isOpen"></i>
             <a class="accordion-toggle" ng-click="isOpen = !isOpen">
-                <span ng-bind-html="header"></span>
+                <my-bind-html node="header"></my-bind-html>
             </a>
         </h4>
         <div class="accordion-toolbar pull-right" ng-if="toolbar != null">
-            <span ng-bind-html="toolbar"></span>
+            <my-bind-html node="toolbar"></my-bind-html>
         </div>
     </div>
     <div class="panel-collapse accordion collapse" collapse="!isOpen">
