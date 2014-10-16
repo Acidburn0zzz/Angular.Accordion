@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="packages/angular_accordion/styles/application/css/application.css">
 
     <link rel="stylesheet" href="packages/angular_accordion/styles/font-awesome-4.1.0/css/font-awesome.min.css">
+
+    <style>
+        a.toolbar:before {
+            content       : url(http://g.etfv.co/https://angulardart.org/);
+            position      : relative;
+            top           : 2px;
+            padding-right : 0.2em;
+        }
+    </style>
 </head>
 <body flexbox-navi-handler ng-cloak>
 <header>
@@ -28,41 +37,78 @@
     <main id="main">
         <div class="container">
             <article class="sample">
-                <h1>Angular - Accordion-Test</h1>
+                <h1>Angular - Accordion-Test {{title}}</h1>
 
                 <div class="well">
                     <accordion close-others="true">
-                        <accordion-group heading="Static Header I, initially expanded" is-open="false">
-                            This content is straight in the template. Ich bin Blindtext. Von Geburt an. Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es bedeutet,
-                            ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang gerissen.
+                        <accordion-group heading="Static Header I {{title}}" is-open="false">
+                            This content is straight in the template. Ich bin Blindtext. Von Geburt an. Ich bin
+                            Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es bedeutet,
+                            ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang
+                            gerissen.
                             Oft wird man gar nicht erst gelesen. Aber bin ich deshalb ein schlechter Text? Ich weiss,
-                            dass ich nie die Chance haben werde, im Stern zu erscheinen. Aber bin ich darum weniger wichtig?
-                            Ich bin blind! Aber ich bin gerne Text. Und sollten Sie mich jetzt tatsächlich zu Ende lesen,
+                            dass ich nie die Chance haben werde, im Stern zu erscheinen. Aber bin ich darum weniger
+                            wichtig?
+                            Ich bin blind! Aber ich bin gerne Text. Und sollten Sie mich jetzt tatsächlich zu Ende
+                            lesen,
                             dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt.
 
-                            Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es bedeutet,
-                            ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang gerissen.
+                            Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es
+                            bedeutet,
+                            ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang
+                            gerissen.
                             Oft wird man gar nicht erst gelesen. Aber bin ich deshalb ein schlechter Text? Ich weiss,
-                            dass ich nie die Chance haben werde, im Stern zu erscheinen. Aber bin ich darum weniger wichtig?
-                            Ich bin blind! Aber ich bin gerne Text. Und sollten Sie mich jetzt tatsächlich zu Ende lesen,
+                            dass ich nie die Chance haben werde, im Stern zu erscheinen. Aber bin ich darum weniger
+                            wichtig?
+                            Ich bin blind! Aber ich bin gerne Text. Und sollten Sie mich jetzt tatsächlich zu Ende
+                            lesen,
                             dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt.
                         </accordion-group>
-                        <accordion-group is-open="true">
+                        <accordion-group heading="Static Header II" is-open="false">
+                            Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es
+                            bedeutet,
+                            ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang
+                            gerissen.
+                            Oft wird man gar nicht erst gelesen. Aber bin ich deshalb ein schlechter Text? Ich weiss,
+                            dass ich nie die Chance haben werde, im Stern zu erscheinen. Aber bin ich darum weniger
+                            wichtig?
+                            Ich bin blind! Aber ich bin gerne Text. Und sollten Sie mich jetzt tatsächlich zu Ende
+                            lesen,
+                            dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt.
+                        </accordion-group>
+                        <accordion-group ng-repeat="name in names" heading="Dynamic <strong>{{name}}</strong> {{title}}">
+                            <accordion-toolbar>
+                                <a class="toolbar" href="#">Hallo {{name}} + Title: {{title}}</a>
+                            </accordion-toolbar>
+                            Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es
+                            bedeutet,
+                            ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang
+                            gerissen.
+                        </accordion-group>
+                        <accordion-group heading="im Stern zu erscheinen.">
                             <accordion-heading>
-                                <strong style="color: red">I can have markup, too!</strong>
+                                <strong style="color: red" class="test">I can have markup, too! {{title}}</strong>
                             </accordion-heading>
                             This is just some content to illustrate fancy headings.
                         </accordion-group>
-
-                        <accordion-group heading="With Toolbar" >
+                        <accordion-group heading="Mit Toolbar" is-open="true">
                             <accordion-toolbar>
-                                Hallo Toolbar
+                                <a class="toolbar" href="#">Hallo Toolbar + Title: {{title}}</a>
                             </accordion-toolbar>
                             This is just some content to illustrate fancy headings.
                         </accordion-group>
 
                     </accordion>
                 </div>
+                <form class="form well" role="form" >
+                    <div class="form-group" style="padding-bottom: 1em;">
+                        <label for="title" class="col-sm-2 control-label">Title:</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="title" placeholder="{{title}}" ng-model="title">
+                        </div>
+                    </div>
+                </form>
             </article>
         </div>
     </main>

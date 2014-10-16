@@ -15,7 +15,13 @@ import 'package:angular_accordion/mm_uia_accordion/mm_uia_accordion.dart';
 /// Entry point into app.
 main() {
     configLogger();
-    applicationFactory().addModule(new SampleModule()).run();
+    applicationFactory().addModule(new SampleModule()).rootContextType(AppController).run();
+}
+
+@Injectable()
+class AppController {
+    String title = "<not set>";
+    final List<String> names = [ "Cyclops", "Iceman"];
 }
 
 /// Demo Module

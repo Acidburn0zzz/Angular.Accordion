@@ -16,6 +16,11 @@ class AccordionGroupComponent implements DetachAware {
     @NgAttr('heading')
     var heading;
 
+    var _header;
+    @NgTwoWay('header')
+    void set header(var html) =>  _header = html;
+    dynamic get header => _header != null ? _header : heading;
+
     @NgAttr('toolbar')
     var toolbar;
 
@@ -49,26 +54,22 @@ class AccordionGroupComponent implements DetachAware {
 @Decorator(selector: 'accordion-heading')
 class AccordionHeadingComponent {
 
-    AccordionHeadingComponent(final html.Element element,final AccordionGroupComponent group) {
-        // worked pre Angular 1.0
+    AccordionHeadingComponent(final html.Element element, final AccordionGroupComponent group) {
         //element.remove();
-        element.style.display = "none";
-        group.heading = new html.Element.html(element.innerHtml);
+        //element.style.display = "none";
+        group.header = element.innerHtml;
     }
 }
 
 @Decorator(selector: 'accordion-toolbar')
 class AccordionToolbarComponent {
-     final _logger = new Logger('webapp_base_ui_angular.mm_uia_accordion.AccordionToolbarComponent');
+    final _logger = new Logger('webapp_base_ui_angular.mm_uia_accordion.AccordionToolbarComponent');
 
-    AccordionToolbarComponent(final html.Element element,final AccordionGroupComponent group) {
-        // worked pre Angular 1.0
+    AccordionToolbarComponent(final html.Element element, final AccordionGroupComponent group) {
         //element.remove();
-
-        _logger.info(element.innerHtml.trim());
-
         element.style.display = "none";
-        group.toolbar = new html.Element.html("<span>${element.innerHtml}</span>");
+//        _logger.info(element.innerHtml);
+        group.toolbar = element.innerHtml;
     }
 
 }
