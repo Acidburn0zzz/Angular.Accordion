@@ -61,13 +61,13 @@ class AccordionHeadingComponent {
     }
 }
 
-@Decorator(selector: 'accordion-toolbar')
+@Component(selector: 'accordion-toolbar')
 class AccordionToolbarComponent {
     final _logger = new Logger('webapp_base_ui_angular.mm_uia_accordion.AccordionToolbarComponent');
 
     AccordionToolbarComponent(final html.Element element, final AccordionGroupComponent group) {
         //element.remove();
-        element.style.display = "none";
+//        element.style.display = "none";
 //        _logger.info(element.innerHtml);
         group.toolbar = element.innerHtml;
     }
