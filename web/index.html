@@ -77,8 +77,11 @@
                             dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt.
                         </accordion-group>
                         <accordion-group ng-repeat="name in names" heading="Dynamic <strong>{{name}}</strong> {{title}}" params="[title,name]">
+                            <span ng-if="title">, Title: {{title}}</span>
                             <accordion-toolbar>
-                                <a class="toolbar" href="#">Hallo {{params[1]}}<span ng-if="!params[0]">, Title: {{params[0]}}</span></a>
+                                <a class="toolbar" href="#">Hallo {{params[1]}}
+                                    <span ng-if="params[0]">, Title: {{params[0]}}</span>
+                                    <span>, Title II: {{params[0]}}</span></a>
                             </accordion-toolbar>
                             Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es
                             bedeutet,
