@@ -20,8 +20,9 @@ main() {
 
 @Injectable()
 class AppController {
-    String title = "<not set>";
+    String title = "";
     final List<String> names = [ "Cyclops", "Iceman"];
+    var params;
 }
 
 /// Demo Module

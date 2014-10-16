@@ -76,24 +76,24 @@
                             lesen,
                             dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt.
                         </accordion-group>
-    <accordion-group ng-repeat="name in names" heading="Dynamic <strong>{{name}}</strong> {{title}}">
-        <accordion-toolbar>
-            <a class="toolbar" href="#">Hallo {{name}} + Title: {{title}}</a>
-        </accordion-toolbar>
-        Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es
-        bedeutet,
-        ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang
-        gerissen.
-    </accordion-group>
-                        <accordion-group heading="im Stern zu erscheinen.">
+                        <accordion-group ng-repeat="name in names" heading="Dynamic <strong>{{name}}</strong> {{title}}" params="[title,name]">
+                            <accordion-toolbar>
+                                <a class="toolbar" href="#">Hallo {{params[1]}}<span ng-if="!params[0]">, Title: {{params[0]}}</span></a>
+                            </accordion-toolbar>
+                            Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es
+                            bedeutet,
+                            ein blinder Text zu sein: Man macht keinen Sinn. Man wirkt hier und da aus dem Zusammenhang
+                            gerissen.
+                        </accordion-group>
+                        <accordion-group heading="im Stern zu erscheinen." params="[title]">
                             <accordion-heading>
-                                <strong style="color: red" class="test">I can have markup, too! {{title}}</strong>
+                                <strong style="color: red" class="test">I can have markup, too! {{params[0]}}</strong>
                             </accordion-heading>
                             This is just some content to illustrate fancy headings.
                         </accordion-group>
-                        <accordion-group heading="Mit Toolbar" is-open="true">
+                        <accordion-group heading="Mit Toolbar" is-open="true" params="[title]">
                             <accordion-toolbar>
-                                <a class="toolbar" href="#">Hallo Toolbar + Title: {{title}}</a>
+                                <a class="toolbar" href="#">Hallo Toolbar + Title: {{params[0]}}</a>
                             </accordion-toolbar>
                             This is just some content to illustrate fancy headings.
                         </accordion-group>

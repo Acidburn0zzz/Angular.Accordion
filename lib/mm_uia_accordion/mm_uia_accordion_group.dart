@@ -13,12 +13,17 @@ class AccordionGroupComponent implements DetachAware {
 
     bool _isOpen = false;
 
+    @NgOneWay('params')
+    var params;
+
     @NgAttr('heading')
     var heading;
 
     var _header;
+
     @NgTwoWay('header')
-    void set header(var html) =>  _header = html;
+    void set header(var html) => _header = html;
+
     dynamic get header => _header != null ? _header : heading;
 
     @NgAttr('toolbar')
@@ -32,6 +37,7 @@ class AccordionGroupComponent implements DetachAware {
     }
 
     @NgTwoWay('is-open') get isOpen => _isOpen;
+
     set isOpen(var newValue) {
         _isOpen = utils.toBool(newValue);
         if (_isOpen) {
@@ -67,8 +73,8 @@ class AccordionToolbarComponent {
 
     AccordionToolbarComponent(final html.Element element, final AccordionGroupComponent group) {
         //element.remove();
-//        element.style.display = "none";
-//        _logger.info(element.innerHtml);
+        //        element.style.display = "none";
+        //        _logger.info(element.innerHtml);
         group.toolbar = element.innerHtml;
     }
 
@@ -80,44 +86,68 @@ class MyBindHtmdModule extends Module {
     }
 }
 
-    @Decorator(selector: 'my-bind-html')
-    class MyBindHtmlComponent {
-        final _logger = new Logger('webapp_base_ui_angular.mm_uia_accordion.MyBindHtmlDirective');
+@Decorator(selector: 'my-bind-html')
+class MyBindHtmlComponent {
+    final _logger = new Logger('webapp_base_ui_angular.mm_uia_accordion.MyBindHtmlDirective');
 
-        final html.Element element;
-        final RootScope scope;
-        final ViewFactoryCache viewFactoryCache;
-        final DirectiveInjector directiveInjector;
-        final DirectiveMap directives;
+    final html.Element element;
+    final Scope scope;
+    final ViewFactoryCache viewFactoryCache;
+    final DirectiveInjector directiveInjector;
+    final DirectiveMap directives;
 
-        View _view;
-        Scope _childScope;
+    View _view;
+    Scope _childScope;
 
-        MyBindHtmlComponent(this.element, this.scope, this.viewFactoryCache, this.directiveInjector, this.directives);
+    MyBindHtmlComponent(this.element, this.scope, this.viewFactoryCache, this.directiveInjector, this.directives);
 
-        @NgOneWay('node')
-        set node(value) {
+    @NgOneWay('node')
+    set node(value) {
 
+        _cleanUp();
+
+        if (value != null && value != '') {
+            _updateContent(viewFactoryCache.fromHtml(value, directives));
+        }
+    }
+
+    _cleanUp() {
+        if (_view == null) return;
+
+        _view.nodes.forEach((node) => node.remove);
+        _childScope.destroy();
+        _childScope = null;
+        element.innerHtml = '';
+        _view = null;
+    }
+
+    _updateContent(final ViewFactory viewFactory) {
+        // create a new scope
+        try {
+            _childScope = scope.createProtoChild();
+            _view = viewFactory(_childScope, directiveInjector);
+
+        }
+        catch (e) {
+            _logger.shout("Level 1");
             _cleanUp();
 
-            if (value != null && value != '') {
-                _updateContent(viewFactoryCache.fromHtml(value, directives));
+            try {
+                _childScope = scope.parentScope.createProtoChild();
+                _view = viewFactory(_childScope, directiveInjector);
+            }
+
+            catch (e) {
+                _logger.shout("Level 2");
+
+                _cleanUp();
+
+                _childScope = scope.rootScope.createProtoChild();
+                _view = viewFactory(_childScope, directiveInjector);
             }
         }
 
-        _cleanUp() {
-            if (_view == null) return;
-            _view.nodes.forEach((node) => node.remove);
-            _childScope.destroy();
-            _childScope = null;
-            element.innerHtml = '';
-            _view = null;
-        }
+        _view.nodes.forEach((node) => element.append(node));
 
-        _updateContent(final ViewFactory viewFactory) {
-            // create a new scope
-            _childScope = scope.createProtoChild();
-            _view = viewFactory(_childScope, directiveInjector);
-            _view.nodes.forEach((node) => element.append(node));
-        }
     }
+}
