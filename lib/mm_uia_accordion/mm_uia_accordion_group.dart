@@ -80,8 +80,8 @@ class AccordionToolbarComponent {
 
 }
 
-class MyBindHtmdModule extends Module {
-    MyBindHtmdModule() {
+class MyBindHtmlModule extends Module {
+    MyBindHtmlModule() {
         bind(MyBindHtmlComponent);
     }
 }
@@ -123,29 +123,8 @@ class MyBindHtmlComponent {
 
     _updateContent(final ViewFactory viewFactory) {
         // create a new scope
-        try {
-            _childScope = scope.createProtoChild();
-            _view = viewFactory(_childScope, directiveInjector);
-
-        }
-        catch (e) {
-            _logger.shout("Level 1");
-            _cleanUp();
-
-            try {
-                _childScope = scope.parentScope.createProtoChild();
-                _view = viewFactory(_childScope, directiveInjector);
-            }
-
-            catch (e) {
-                _logger.shout("Level 2");
-
-                _cleanUp();
-
-                _childScope = scope.rootScope.createProtoChild();
-                _view = viewFactory(_childScope, directiveInjector);
-            }
-        }
+        _childScope = scope.createProtoChild();
+        _view = viewFactory(_childScope, directiveInjector);
 
         _view.nodes.forEach((node) => element.append(node));
 

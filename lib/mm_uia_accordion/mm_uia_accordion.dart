@@ -14,7 +14,7 @@ part 'mm_uia_accordion_group.dart';
 class AccordionModule extends Module {
     AccordionModule() {
         install(new CollapseModule());
-        install(new MyBindHtmdModule());
+        install(new MyBindHtmlModule());
 
         bind(AccordionComponent);
         bind(AccordionHeadingComponent);
