@@ -19,4 +19,5 @@ dependencies:
   #">=0.14.0 <1.0.0"
 
 transformers:
-- angular
+- angular:
+    dart_sdk: "/usr/local/opt/dart/libexec"
