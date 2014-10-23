@@ -19,7 +19,7 @@
             padding-right : 0.2em;
         }
 
-        a.remove {
+        a.replace {
             color       : #ff0000;
             font-weight : bold;
         }
@@ -87,7 +87,7 @@
                                 <a class="toolbar" href="#">Hallo {{params[1]}}
                                     <span ng-if="params[0]">, Title: {{params[0]}}</span>
                                     <span>, Title II: {{params[0]}}</span></a>
-                                <a class="remove" href="#" ng-click="replace(params[1])">[ REPL ]</a>
+                                <a class="replace" href="#" ng-click="replace(params[1])">[ REPL ]</a>
                             </accordion-toolbar>
                             Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es
                             bedeutet,

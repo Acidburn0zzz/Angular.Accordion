@@ -50,7 +50,6 @@ class AccordionGroupComponent implements DetachAware {
 
             _logger.info("Replace $lastname (Index: $index)");
             _model.musicians[index] = new Address("Tina","Turner");
-
         });
     }
 
