@@ -1,4 +1,4 @@
-library webapp_base_ui_angular.example.mm_uia_alert;
+library webapp_base_ui_angular.example.mm_uia_accordion;
 
 import 'package:angular/angular.dart';
 import 'package:angular/application_factory.dart';
@@ -10,7 +10,10 @@ import 'package:angular_accordion/angular/decorators/flexbox_navi_handler.dart';
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
+import 'package:angular_accordion/model.dart';
+
 import 'package:angular_accordion/mm_uia_accordion/mm_uia_accordion.dart';
+
 
 /// Entry point into app.
 main() {
@@ -20,9 +23,15 @@ main() {
 
 @Injectable()
 class AppController {
-    String title = "";
-    final List<String> names = [ "Cyclops", "Iceman"];
+    final _logger = new Logger('webapp_base_ui_angular.example.mm_uia_accordion.AppController');
+
+    // Hack - Angular Bug!m (params)
     var params;
+
+    String title = "";
+    final Model model;
+
+    AppController(this.model);
 }
 
 /// Demo Module
@@ -39,6 +48,7 @@ class SampleModule extends Module {
         // -- decorator
         bind(NaviHandler);
 
+        bind(Model);
         //factory(NgRoutingUsePushState, (_) => new NgRoutingUsePushState.value(false));
     }
 }

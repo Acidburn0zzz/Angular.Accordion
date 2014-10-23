@@ -31,12 +31,28 @@ class AccordionGroupComponent implements DetachAware {
 
     final AccordionComponent accordion;
 
-    AccordionGroupComponent(this.accordion) {
+    // Just a sample!!!!
+    final Model _model;
+    final VmTurnZone _zone;
+
+    AccordionGroupComponent(this.accordion,this._model,this._zone) {
         _logger.fine('AccordionGroupComponent');
         accordion.addGroup(this);
     }
 
     @NgTwoWay('is-open') get isOpen => _isOpen;
+
+    void replace(final String lastname) {
+        _zone.run(() {
+
+            final Address addressFromList = _model.musicians.firstWhere((final Address address) => lastname == address.lastname);
+            final int index = _model.musicians.indexOf(addressFromList);
+
+            _logger.info("Replace $lastname (Index: $index)");
+            _model.musicians[index] = new Address("Tina","Turner");
+
+        });
+    }
 
     set isOpen(var newValue) {
         _isOpen = utils.toBool(newValue);

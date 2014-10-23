@@ -5,7 +5,9 @@ import 'package:angular/angular.dart';
 import 'package:angular/utils.dart' as utils;
 
 import 'package:angular_accordion/angular/decorators/collapse.dart';
-import 'package:angular_accordion/angular/decorators/content_append.dart';
+
+// It's just a sample!!!!
+import 'package:angular_accordion/model.dart';
 
 import 'package:logging/logging.dart' show Logger;
 
@@ -74,6 +76,7 @@ class AccordionComponent {
         groups.remove(groupScope);
     }
 }
+
 
 @Decorator(selector: '[my-bind-html]',map: const {'my-bind-html': '@html'})
 class MyBindHtmlDirective {

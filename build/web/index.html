@@ -18,6 +18,11 @@
             top           : 2px;
             padding-right : 0.2em;
         }
+
+        a.remove {
+            color       : #ff0000;
+            font-weight : bold;
+        }
     </style>
 </head>
 <body flexbox-navi-handler ng-cloak>
@@ -76,12 +81,13 @@
                             lesen,
                             dann habe ich etwas geschafft, was den meisten "normalen" Texten nicht gelingt.
                         </accordion-group>
-                        <accordion-group ng-repeat="name in names" heading="Dynamic <strong>{{name}}</strong> {{title}}" params="[title,name]">
+                        <accordion-group ng-repeat="musician in model.musicians" heading="Dynamic <strong>{{musician.firstname}}</strong> {{title}}" params="[title,musician.lastname]">
                             <span ng-if="title">, Title: {{title}}</span>
                             <accordion-toolbar>
                                 <a class="toolbar" href="#">Hallo {{params[1]}}
                                     <span ng-if="params[0]">, Title: {{params[0]}}</span>
                                     <span>, Title II: {{params[0]}}</span></a>
+                                <a class="remove" href="#" ng-click="replace(params[1])">[ REPL ]</a>
                             </accordion-toolbar>
                             Ich bin Blindtext. Von Geburt an. Es hat lange gedauert, bis ich begriffen habe, was es
                             bedeutet,
